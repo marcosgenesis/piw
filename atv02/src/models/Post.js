@@ -8,6 +8,6 @@ const schema = mongoose.Schema({
     type:String,
     required:true,
   },
-  id_usuario: [{ type: mongoose.Schema.Types.ObjectId, ref: 'User' }]
+  id_usuario: { type: mongoose.Schema.Types.ObjectId, ref: 'User' }
 });
 export default mongoose.model('Post',schema);

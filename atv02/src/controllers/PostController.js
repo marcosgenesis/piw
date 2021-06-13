@@ -7,7 +7,7 @@ export async function createPost(req,res){
   try {
     const {conteudo,likes,id_usuario} = req.body;
     const post = await Post.create({conteudo,likes,id_usuario});
-    return res.status(201).json((post));
+    return res.status(201).json(render(post));
   } catch (error) {
     return res.status(400).json({error:"Is not possible create this post. try again."})
   }
