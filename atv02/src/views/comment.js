@@ -1,6 +1,6 @@
-export function render(user) { return ({
-  id:user._id,
-  texto:user.texto,
-  usuario:user.id_usuario,
-  post:user.id_post,
+export function render(comment) { return ({
+  id:comment._id,
+  texto:comment.texto,
+  usuario:comment.id_usuario,
+  post:comment.id_post,
 }); }

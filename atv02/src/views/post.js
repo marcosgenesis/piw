@@ -1,6 +1,6 @@
-export function render(user) { return ({
-  id:user._id,
-  conteudo:user.conteudo,
-  usuario:user.id_usuario,
-  likes:user.likes,
+export function render(post) { return ({
+  id:post._id,
+  conteudo:post.conteudo,
+  usuario:post.id_usuario,
+  likes:post.likes,
 }); }
