@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { Link } from "react-router-dom";
 
 export const Container = styled.div`
   width: 100%;
@@ -25,7 +26,7 @@ export const Actions = styled.div`
   justify-content: flex-end;
   margin-right: 20px;
 `;
-export const ActionItem = styled.a`
+export const ActionItem = styled(Link)`
   text-decoration: none;
   margin-right: 30px;
   color: ${(props) => (props.active ? "#735bf2" : "#fff")};

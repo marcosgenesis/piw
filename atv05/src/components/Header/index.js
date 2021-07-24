@@ -9,8 +9,8 @@ function Header() {
       <Content>
         <img src={logo} alt='logo maiself' />
         <Actions>
-          <ActionItem href='/' exact active={window.location.pathname === '/'} >Linha do tempo</ActionItem>
-          <ActionItem href='/postar' active={window.location.pathname === '/postar'}>Postar</ActionItem>
+          <ActionItem to='/' exact active={window.location.pathname === '/'} >Linha do tempo</ActionItem>
+          <ActionItem to='/postar' active={window.location.pathname === '/postar'}>Postar</ActionItem>
         </Actions>
         <LoggedUser>Marcos Gênesis</LoggedUser>
       </Content>
