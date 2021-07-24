@@ -7,7 +7,7 @@ import {
   Sender,
   Message,
   Comments,
-  Comment,
+  Comment,NewComment
 } from "./styles";
 
 function Post({ sender, message, likes, comments }) {
@@ -31,6 +31,7 @@ function Post({ sender, message, likes, comments }) {
           ))}
         </Comments>
       )}
+      <NewComment placeholder="Escreva seu comentário"/>
     </Container>
   );
 }

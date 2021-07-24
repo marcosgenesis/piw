@@ -42,6 +42,14 @@ export const Message = styled.p`
 export const Comments = styled.div`
 
 `;
+export const NewComment = styled.input`
+  width: 100%;
+  height: 44px;
+  background: #1d1d1d;
+  border:none;
+  padding-left: 8px;
+  color: white;
+`;
 export const Comment = styled.div`
   padding: 10px;
   .author{
