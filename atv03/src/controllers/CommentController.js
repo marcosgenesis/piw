@@ -19,7 +19,8 @@ export async function createComment(req,res){
 
 export async function listComments(req,res){
   try {
-    const comments = await Comment.find().exec();
+    const comments = await Comment.find().populate('id_usuario').exec();
+    console.log(comments)
     const formattedComments = comments.map(comment => (render(comment)));
 
     return res.status(201).json(formattedComments);

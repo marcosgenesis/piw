@@ -7,12 +7,12 @@ import {render as commentRender} from "../views/comment.js"
 export async function createPost(req,res){
   try {
     const { id } = jwt.decode(req.headers.token);
-    const {conteudo,likes,id_usuario} = req.body;
+    const {conteudo,likes,id_usuario,comments} = req.body;
 
     if (id !== id_usuario) {
       return res.status(403 ).json({error:'id not valid'})
     }
-    const post = await Post.create({conteudo,likes,id_usuario});
+    const post = await Post.create({conteudo,likes,id_usuario,comments});
     return res.status(201).json(render(post));
   } catch (error) {
     return res.status(400).json({error:"Is not possible create this post. try again."})
@@ -21,7 +21,7 @@ export async function createPost(req,res){
 
 export async function listPosts(req,res){
   try {
-    const posts = await Post.find().exec();
+    const posts = await Post.find().populate('id_usuario').exec();
     const formattedPosts = posts.map(post => (render(post)));
 
     return res.status(201).json(formattedPosts);
@@ -66,7 +66,7 @@ export async function deletePost(req,res){
 
 export async function getPostComments(req,res){
   try {
-    const comments = await Comment.find({id_post:req.params.id}).exec();
+    const comments = await Comment.find({id_post:req.params.id}).populate('id_usuario').exec();
     const formattedComments = comments.map(comment => (commentRender(comment)));
     return res.status(201).json(formattedComments);
   } catch (error) {
